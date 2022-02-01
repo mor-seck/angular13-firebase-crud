@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Tutorial } from 'src/app/models/tutorial.model';
 import { TutorialService } from 'src/app/services/tutorial.service';
 
@@ -8,13 +8,16 @@ import { TutorialService } from 'src/app/services/tutorial.service';
   styleUrls: ['./tutorial-details.component.css']
 })
 export class TutorialDetailsComponent implements OnInit {
+
   @Input() tutorial?: Tutorial;
   @Output() refreshList: EventEmitter<any> = new EventEmitter();
+
   currentTutorial: Tutorial = {
     title: '',
     description: '',
     published: false
   };
+
   message = '';
 
   constructor(private tutorialService: TutorialService) { }
@@ -62,4 +65,5 @@ export class TutorialDetailsComponent implements OnInit {
         .catch(err => console.log(err));
     }
   }
+
 }
